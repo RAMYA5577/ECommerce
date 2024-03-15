@@ -1,6 +1,5 @@
 package com.example.ECommerce.Model;
 
-import com.example.ECommerce.Enum.Gender;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -14,8 +13,8 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@Table(name="customer")
-public class Customer {
+@Table(name="seller")
+public class Seller {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
@@ -29,19 +28,6 @@ public class Customer {
     @Column(name = "email",unique = true,nullable = false)
     String emailId;
 
-    @Column(name = "age")
-    int age;
-
-    @Column(name = "gender")
-    @Enumerated(EnumType.STRING)
-    Gender gender;
-
-    @OneToOne(mappedBy = "customer",cascade = CascadeType.ALL)
-    Cart cart;
-
-    @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
-    List<Card> cards=new ArrayList<>();
-
-    @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
-    List<OrderEntity> orders=new ArrayList<>();
+    @OneToMany(mappedBy = "seller",cascade = CascadeType.ALL)
+    List<Product> products = new ArrayList<>();
 }

@@ -30,4 +30,6 @@ public class Seller {
 
     @OneToMany(mappedBy = "seller",cascade = CascadeType.ALL)
     List<Product> products = new ArrayList<>();
+
+
 }

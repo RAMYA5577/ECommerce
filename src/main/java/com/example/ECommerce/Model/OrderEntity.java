@@ -22,11 +22,8 @@ public class OrderEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
-    @Column(name = "order_no")
+    @Column(name="order_no")
     String orderNo;
-
-    @Column(name = "quantity")
-    int quantity;
 
     @Column(name = "total_value")
     int totalValue;
@@ -34,8 +31,8 @@ public class OrderEntity {
     @Column(name = "card_used")
     String cardUsed;
 
-    @CreationTimestamp
     @Column(name = "date_of_order")
+    @CreationTimestamp
     Date dateOfOrder;
 
     @ManyToOne
